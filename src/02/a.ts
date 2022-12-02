@@ -77,28 +77,35 @@ const evaluateRound: (theirHand: "A" | "B" | "C",  myHand: "X" | "Y" | "Z") => n
 
 }
 
-while(inputArr.length >= 4) {
-  let newGame: iGame = {
-    roundOne: inputArr.shift() as string,
-    roundTwo: inputArr.shift() as string,
-    roundThree: inputArr.shift() as string,
-    roundOneScore: 0,
-    roundTwoScore: 0,
-    roundThreeScore: 0,
-    gameScore: 0
-  };
+let scoreTotal = 0;
 
-  newGame.roundOneScore = evaluateRound(newGame.roundOne.split(" ")[0] as "A" | "B" | "C", newGame.roundOne.split(" ")[1] as "X" | "Y" | "Z");
-  newGame.roundTwoScore = evaluateRound(newGame.roundTwo.split(" ")[0] as "A" | "B" | "C", newGame.roundTwo.split(" ")[1] as "X" | "Y" | "Z");
-  newGame.roundThreeScore = evaluateRound(newGame.roundThree.split(" ")[0] as "A" | "B" | "C", newGame.roundThree.split(" ")[1] as "X" | "Y" | "Z");
-  newGame.gameScore = newGame.roundOneScore + newGame.roundTwoScore + newGame.roundThreeScore;
+while(inputArr.length >= 1) {
+  let round = inputArr.shift() as string;
+  let score = evaluateRound(round.split(" ")[0] as "A" | "B" | "C", round.split(" ")[1] as "X" | "Y" | "Z");
+  scoreTotal = scoreTotal + score;
 
-  console.log(newGame)
 
-  games.push(newGame);
+  // let newGame: iGame = {
+  //   roundOne: inputArr.shift() as string,
+  //   roundTwo: inputArr.shift() as string,
+  //   roundThree: inputArr.shift() as string,
+  //   roundOneScore: 0,
+  //   roundTwoScore: 0,
+  //   roundThreeScore: 0,
+  //   gameScore: 0
+  // };
+
+  // newGame.roundOneScore = evaluateRound(newGame.roundOne.split(" ")[0] as "A" | "B" | "C", newGame.roundOne.split(" ")[1] as "X" | "Y" | "Z");
+  // newGame.roundTwoScore = evaluateRound(newGame.roundTwo.split(" ")[0] as "A" | "B" | "C", newGame.roundTwo.split(" ")[1] as "X" | "Y" | "Z");
+  // newGame.roundThreeScore = evaluateRound(newGame.roundThree.split(" ")[0] as "A" | "B" | "C", newGame.roundThree.split(" ")[1] as "X" | "Y" | "Z");
+  // newGame.gameScore = newGame.roundOneScore + newGame.roundTwoScore + newGame.roundThreeScore;
+
+  // console.log(newGame)
+
+  // games.push(newGame);
 }
 
-const sum = games.reduce((partial, game) => partial + game.gameScore, 0)
+// const sum = games.reduce((partial, game) => partial + game.gameScore, 0)
 
 // console.log(games[0]);
-console.log(`SUM: ${sum}`)
+console.log(`SUM: ${scoreTotal}`)
