@@ -58,15 +58,19 @@ groups.forEach((group, index) => {
   let elf1TasksEcompasesElf2Tasks = false;
   let elf2TasksEcompasesElf1Tasks = false;
   // 1s < 2s and 1e > 2e = #1 encompases #2
-  if(group.oneStart < group.twoStart && group.oneEnd > group.twoEnd) elf1TasksEcompasesElf2Tasks = true;
+  if(group.oneStart <= group.twoStart && group.oneEnd >= group.twoEnd) elf1TasksEcompasesElf2Tasks = true;
 
   // 1s > 2s and 1e < 2e = #2 encompases #1
-  if(group.oneStart > group.twoStart && group.oneEnd < group.twoEnd) elf2TasksEcompasesElf1Tasks = true;
+  if(group.oneStart >= group.twoStart && group.oneEnd <= group.twoEnd) elf2TasksEcompasesElf1Tasks = true;
 
-  if(elf1TasksEcompasesElf2Tasks) console.log('Elf 1 tasks cover Elf 2 tasks');
-  if(elf2TasksEcompasesElf1Tasks) console.log('Elf 2 tasks cover Elf 1 tasks');
-  console.log(group)
-  visualizeGroup(group, index);
+  if(elf1TasksEcompasesElf2Tasks || elf2TasksEcompasesElf1Tasks) {
+    count = count + 1;
+    if(elf1TasksEcompasesElf2Tasks) console.log('Elf 1 tasks cover Elf 2 tasks');
+    if(elf2TasksEcompasesElf1Tasks) console.log('Elf 2 tasks cover Elf 1 tasks');
+    console.log(group)
+    visualizeGroup(group, index);
+  }
+
 });
 
 // groups.forEach((group, gIndex) => visualizeGroup(group, gIndex));
