@@ -16,19 +16,31 @@ let crateStacks = {
   9: "JWHGRSV".split(''),
 }
 
-const stacksToString = () => {
-  console.log(crateStacks[1].join(' '));
-  console.log(crateStacks[2].join(' '));
-  console.log(crateStacks[3].join(' '));
-  console.log(crateStacks[4].join(' '));
-  console.log(crateStacks[5].join(' '));
-  console.log(crateStacks[6].join(' '));
-  console.log(crateStacks[7].join(' '));
-  console.log(crateStacks[8].join(' '));
-  console.log(crateStacks[9].join(' '));
+const stacksToString = (stack) => {
+  console.log(stack[1].join(' '));
+  console.log(stack[2].join(' '));
+  console.log(stack[3].join(' '));
+  console.log(stack[4].join(' '));
+  console.log(stack[5].join(' '));
+  console.log(stack[6].join(' '));
+  console.log(stack[7].join(' '));
+  console.log(stack[8].join(' '));
+  console.log(stack[9].join(' '));
+  console.log();
+  console.log('TOP ITEMS:');
+  console.log(
+    stack[1][stack[1].length-1] + 
+    stack[2][stack[2].length-1] + 
+    stack[3][stack[3].length-1] + 
+    stack[4][stack[4].length-1] + 
+    stack[5][stack[5].length-1] + 
+    stack[6][stack[6].length-1] + 
+    stack[7][stack[7].length-1] + 
+    stack[8][stack[8].length-1] + 
+    stack[9][stack[9].length-1])
 }
 
-console.log(stacksToString());
+console.log(stacksToString(crateStacks));
 
 let instructions = inputArr.map(itm => itm.split(' '));
 // [1] = the number of crates to move
@@ -58,7 +70,7 @@ instructions.forEach((instruction, index) => {
 // await Deno.writeTextFile("./src/05/output.txt", crateStacks.)
 
 console.log('AFTER CONVERSION');
-console.log(stacksToString());
+console.log(stacksToString(crateStacks));
 
 // cvcwcrtvq
 // CVCWCRTVQ
