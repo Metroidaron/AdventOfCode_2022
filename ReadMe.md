@@ -13,4 +13,4 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 ```
 
 ### Example Run Command
-`deno run --allow-read --watch src/01/a.ts`
+`deno run --allow-read --allow-write --watch src/01/a.ts`
