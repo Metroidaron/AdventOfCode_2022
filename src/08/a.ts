@@ -55,7 +55,7 @@ const isObscured = (coordX: number, coordY: number) => {
     XToLeft = XToLeft - 1;
   }
 
-  // Check to the right of the primary coord
+  // Check below the primary coord
   let YToRight = coordY + 1;
   console.log('Checking to the right');
   while(YToRight < 99) {
@@ -65,6 +65,9 @@ const isObscured = (coordX: number, coordY: number) => {
     }
     YToRight = YToRight + 1;
   }
+
+  // Check above the primary coord
+  let 
 
   return false;
 }
